@@ -258,10 +258,10 @@ bot.on("message", async (msg) => {
     if (type === "lifetime") {expsc = 76337;}
     try {
     updateFile(data.username, data.ip, expsc)
-    loading(bot, chatId)
-    return  bot.sendMessage(chatId, `berhasil Menambahkan ${data.ip}.`);
+    await loading(bot, chatId)
+    return  bot.sendMessage(chatId, `berhasil Menambahkan ${data.ip}.`, menu);
     } catch (e) {
-      return bot.sendMessage(chatId, "Gagal Menambahkan Ip.")
+      return bot.sendMessage(chatId, "Gagal Menambahkan Ip.", menu)
     }
     delete userSessions[chatId];
   }
